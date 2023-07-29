@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+:root {
+  --primary-color: #6d71b5;
+  --secondary-color: #F8F8F2;
+  --tertiary-color: #181928;
+  --background-color: #8bc6ec;
+  --dark-background-color: #12131d;
+  /* dracula:
+  base:
+    - &BG "#13141f"
+    - &FG "#F8F8F2"
+    - &SELECTION "#44475A"
+    - &COMMENT "#6272A4"
+    - &CYAN "#8BE9FD"
+    - &GREEN "#50FA7B"
+    - &ORANGE "#FFB86C"
+    - &PINK "#FF79C6"
+    - &PURPLE "#BD93F9"
+    - &RED "#FF5555"
+    - &YELLOW "#F1FA8C"
+  ansi:
+    - &COLOR0 "#21222C"
+    - &COLOR1 "#FF5555"
+    - &COLOR2 "#50FA7B"
+    - &COLOR3 "#F1FA8C"
+    - &COLOR4 "#BD93F9"
+    - &COLOR5 "#FF79C6"
+    - &COLOR6 "#8BE9FD"
+    - &COLOR7 "#F8F8F2"
+    - &COLOR8 "#6272A4"
+    - &COLOR9 "#FF6E6E"
+    - &COLOR10 "#69FF94"
+    - &COLOR11 "#FFFFA5"
+    - &COLOR12 "#D6ACFF"
+    - &COLOR13 "#FF92DF"
+    - &COLOR14 "#A4FFFF"
+    - &COLOR15 "#FFFFFF"
+  brightOther:
+    # Temporary (awaiting fix)
+    - &TEMP_QUOTES "#E9F284"
+    - &TEMP_PROPERTY_QUOTES "#8BE9FE"
+  other:
+    - &LineHighlight "#44475A75"
+    - &NonText "#FFFFFF1A"
+    - &WHITE "#FFFFFF"
+    - &TAB_DROP_BG "#44475A70"
+    # UI Variants
+    - &BGLighter "#282A36"
+    - &BGLight "#181928"
+    - &BGDark "#13141f"
+    - &BGDarker "#12131d" */
+}
+
+* {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+li, a {
+  cursor: pointer;
+}
+
+body {
+  background-color: var(--background-color);
+  background-image: linear-gradient(135deg, var(--background-color) 0%, var(--primary-color) 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 14px;
+}
+
+h2 {
+  font-size: 12px;
+}
+
+.title {
+  color: var(--secondary-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+  animation: glow 5s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+  }
+  50% {
+    text-shadow: none;
+  }
+}
+
+main {
+  background-color: var(--dark-background-color);
+  width: 80%;
+  height: 70vh;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  padding: 1rem;
+}
+menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+menu ul{
+  display: flex;
+  align-items: center;
+  gap:1rem;
+}
+menu ul li{
+  gap:5px;
+}
+
+svg {
+  color: var(--secondary-color);
+  stroke-width: 2px;
+}
+
+header menu {
+  justify-content: space-between;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+aside {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+aside menu ul{
+  flex-direction: column;
+}
+
+.explorer {
+  background-color: var(--tertiary-color);
+  width: 20%;
+  max-width: 10rem;
+  height: 60vh;
+  gap:1rem;
+  border-radius: 8px 0px 8px 8px;
+}
+
+.explorer menu {
+  flex-direction: column;
+  padding-left: 10px;
+  padding-top: 10px;
+  color: var(--secondary-color);
+}
+
+.nav-explorer ul {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 12px;
+  display: block;
+}
+.nav-explorer li {
+  flex-direction: row;
+  font-size: 12px;
+  margin-top: 1rem;
+}
+
+.nav-arquive {
+  width: 100%;
+  background-color: var(--tertiary-color);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nav-arquive ul {
+  flex-direction: row;
+  align-items: center;
+  gap:0;
+}
+
+.nav-arquive li {
+  text-align: center;
+  padding: 8px;
+  width: 20%;
+  height: 100%;
+  min-width: 110px;
+  color: var(--secondary-color);
+}
+
+.code-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.code-space {
+  width: 99%;
+  height: 100%;
+  color: white;
+}
+
+pre {
+  padding-left: 1rem;
+  max-width: 99%;
+  height: 80%;
+  overflow: auto;
+  white-space: pre-wrap;
+  font-size: 14px;
+}
+
+#copy {
+  position: absolute;
+  left: 86%;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.actived {
+  border-top: 2px solid var(--primary-color);
+  background-color: var(--dark-background-color);
+}
+
+li:active,
+a:active,
+svg:active {
+  transform: scale(0.9) !important;
+}
+
+.arquive-actived {
+  color: var(--primary-color);
+}
+
+#folder {
+  font-size: 12px;
+}
+
+#altFont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#altFont ul{
+  text-align: center;
+  position: absolute;
+  /* top: 0; */
+  bottom: 0;
+  width: 50%;
+  color: var(--secondary-color);
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+#altFont ul li{
+  background-color: var(--tertiary-color);
+  padding: 10px;
+  width: 30%;
+  border-radius: 8px 8px 0px 0px;
+  box-shadow: 3px 3px 10px #6d71b5;
+}
+
+
+svg[data-lucide="folder-open"],
+svg[data-lucide="folder-closed"],
+svg[data-lucide="file-check"],
+svg[data-lucide="file-image"],
+svg[data-lucide="file-code"] {
+  width: 12px;
+  height: 12px;
+  padding-right: 5px;
+}
+
+.nav-explorer li:hover {
+  color: var(--primary-color);
+}
+
+.styled-pre::-webkit-scrollbar {
+  width: 5px;
+}
+
+.styled-pre::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 5px;
+}
+
+.styled-pre::-webkit-scrollbar-thumb:hover {
+  background-color: #c397d8;
+}
+
+.hljs {
+  background-color: var(--dark-background-color) !important;
+}
+
+.hljs-attribute,
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-name,
+.hljs-selector-tag {
+  font-weight: 500 !important;
+}
+
+.hljs-tag .hljs-attr,
+.hljs-tag .hljs-name {
+  color: #c397d8;
+}
+
+.hljs-deletion,
+.hljs-name,
+.hljs-regexp,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-tag,
+.hljs-template-variable,
+.hljs-variable {
+  color: var(--secondary-color);
+}
+
+@media (max-width: 790px) {
+  .explorer{
+    display: none!important;
+  }
+  main {
+    width: 90%;
+    height: 80vh;
+  }
+}
+@media (max-width: 570px) {
+  main {
+    width: 95%;
+    height: 90vh;
+  }
+  .title{
+    display: none;
+  }
+  .nav-arquive li {
+    padding: 5px;
+    min-width: 100px;
+  }
+  aside{
+    display: none;
+  }
+  
+}
+
+@media (max-height: 570px) {
+  pre{
+    max-height: 80vh;
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codigo da Aplicação</title>
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tomorrow-night-bright.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <menu>
+        <i data-lucide="code-2" id="codeIco"></i>
+        <div class="title">
+          <h1>Projeto Netuno</h1>
+          <i>-</i>
+          <h2>Embarque Nessa Aventura!</h2>
+        </div>
+        <ul>
+          <li>
+            <i data-lucide="minus"></i>
+          </li>
+          <li>
+            <i data-lucide="picture-in-picture-2"></i>
+          </li>
+          <li>
+            <i data-lucide="x"></i>
+          </li>
+        </ul>
+      </menu>
+    </header>
+    <section>
+      <aside>
+        <menu>
+          <ul>
+            <li>
+              <i data-lucide="file-text"></i>
+            </li>
+            <li>
+              <i data-lucide="search"></i>
+            </li>
+            <li>
+              <a href="https://github.com/" target="_blank">              
+                <i data-lucide="github"></i>
+              </a>
+            </li>
+          </ul>
+        </menu>
+      </aside>
+      <div class="explorer">
+        <menu class="nav-explorer">
+          <a id="folder"><i data-lucide="folder-closed"></i>Projeto Netuno</a>
+          <ul>
+            <li href="#" id="navHtml" onclick="inputPage(inputPageIndex)">
+              <i data-lucide="file-check"></i>
+              index.html
+            </li>
+            <li href="#" id="navCss" onclick="inputPage(inputPageStile)">
+              <i data-lucide="file-image"></i>
+              style.css
+            </li>
+            <li href="#" id="navJs"onclick="inputPage(inputPageScript)">
+              <i data-lucide="file-code"></i>
+              script.js
+            </li>
+          </ul>
+        </menu>
+      </div>
+      <div class="code-container">
+        <menu class="nav-arquive">
+          <ul>
+            <li href="#" class="actived" id="navIndex" onclick="inputPage(inputPageIndex)">   
+              index.html
+            </li>
+            <li href="#" id="navStyle" onclick="inputPage(inputPageStile)">
+              style.css
+            </li>
+            <li href="#" id="navScript" onclick="inputPage(inputPageScript)">
+              script.js
+            </li>
+          </ul>
+        </menu>
+        <div class="code-space" id="snippet">
+          <span id="copy"><i data-lucide="paperclip" onclick="copyCode()"></i></span>
+          <pre class="styled-pre" id="fontEvent">
+            <code id="codigoPagina">
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <span id="altFont">
+      <ul>
+        <li onclick="changeFontSize('16px')">16px</li>
+        <li onclick="changeFontSize('18px')">18px</li>
+        <li onclick="changeFontSize('20px')">20px</li>
+      </ul>
+    </span>
+  </main>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>lucide.createIcons(); inputPage(inputPageIndex);</script>
+</body>
+
+
+</html>
