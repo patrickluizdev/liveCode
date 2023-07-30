@@ -1,23 +1,24 @@
-// Faz a consulta HTTP ao script JavaScript
+// Chamada URL páginas
+const inputPageStile = 'http://patrickluiz.tech:5500/flexTurismo/style.css';
+const inputPageScript = 'http://patrickluiz.tech:5500/flexTurismo/script.js';
+const inputPageIndex = 'http://patrickluiz.tech:5500/flexTurismo/index.html';
+var codigoPagina = document.getElementById('codigoPagina');
+
 function inputPage(url) {
   fetch(url)
     .then(response => {
       if (!response.ok) {
         throw new Error('Erro na resposta da requisição: ' + response.status);
       }
-      // console.log(response.text);
-      // console.log(response.status);
       return response.text();
     })
     .then(content => {
       const regex = /<!-- Code injected by live-server -->[\s\S]*<\/script>/g;
-      cleanTextCode = content.replace(regex, '');
-      // console.log(cleanTextCode)
-      const preElement = document.getElementById('codigoPagina');
-      preElement.className = '';
-      preElement.textContent = cleanTextCode;
-      hljs.highlightElement(preElement);
-      actived(preElement);
+      const cleanTextCode = content.replace(regex, '');
+      codigoPagina.className = '';
+      codigoPagina.textContent = cleanTextCode;
+      hljs.highlightElement(codigoPagina);
+      actived(codigoPagina);
     })
     .catch(error => {
       console.error('Erro na consulta HTTP:', error);
@@ -25,29 +26,25 @@ function inputPage(url) {
 }
 
 function actived(element) {
-  console.log(element)
   if (!element) {
-    console.error('Elemento "codigoPagina" não encontrado.');
     return;
   }
+
+  clear();
+
   if (element.classList.contains('language-xml')) {
-    clear()
-    document.getElementById('navIndex').classList.add('actived');
-    document.getElementById('navHtml').classList.add('arquive-actived');
-  }
-  else if (element.classList.contains('language-css')) {
-    clear()
-    document.getElementById('navStyle').classList.add('actived');
-    document.getElementById('navCss').classList.add('arquive-actived');
-  }
-  else if (element.classList.contains('hljs')) {
-    clear()
-    document.getElementById('navScript').classList.add('actived');
-    document.getElementById('navJs').classList.add('arquive-actived');
+    navIndex.classList.add('actived');
+    navHtml.classList.add('arquive-actived');
+  } else if (element.classList.contains('language-css')) {
+    navStyle.classList.add('actived');
+    navCss.classList.add('arquive-actived');
+  } else if (element.classList.contains('hljs')) {
+    navScript.classList.add('actived');
+    navJs.classList.add('arquive-actived');
   }
 }
 
-function folder(){
+function folder() {
   const folderIcon = document.getElementById('folder');
   const navExplorerList = document.querySelector('.nav-explorer ul');
   folderIcon.addEventListener('click', () => {
@@ -57,42 +54,29 @@ function folder(){
       navExplorerList.style.display = 'none';
     }
   });
-  actived()
+  actived();
 }
-folder()
-function clear(){
-  document.querySelectorAll("li").forEach(li => {
-    li.classList.remove("actived");
-    li.classList.remove("arquive-actived");
-  })
+
+function clear() {
+  document.querySelectorAll('li').forEach(li => {
+    li.classList.remove('actived');
+    li.classList.remove('arquive-actived');
+  });
 }
 
 function copyCode() {
-  const codigoPagina = document.getElementById('codigoPagina').textContent;
+  // codigoPagina = document.getElementById('codigoPagina').textContent;
   const textareaTemporario = document.createElement('textarea');
   textareaTemporario.value = codigoPagina;
   document.body.appendChild(textareaTemporario);
   textareaTemporario.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(textareaTemporario);
 }
 
-
 function changeFontSize(fontSize) {
-  const element = document.getElementById('fontEvent');
-  element.style.fontSize = fontSize;
-  console.log(fontSize)
-
+  fontEvent.style.fontSize = fontSize;
 }
 
-
-
-// Chamada da função com o URL correto do script
-const inputPageStile = 'http://patrickluiz.tech:5500/homePage/html/src/style.css';
-const inputPageScript = 'http://patrickluiz.tech:5500/homePage/html/src/script.js';
-const inputPageIndex = 'http://patrickluiz.tech:5500/flexTurismo/index.html';
-
-
-
-
-
+folder();
+inputPage(inputPageIndex)
