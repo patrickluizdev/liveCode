@@ -2,7 +2,6 @@
 const inputPageStile = 'http://patrickluiz.tech:5500/flexTurismo/src/style.css';
 const inputPageScript = 'http://patrickluiz.tech:5500/flexTurismo/src/script.js';
 const inputPageIndex = 'http://patrickluiz.tech:5500/flexTurismo/index.html';
-var codigoPagina = document.getElementById('codigoPagina');
 
 function inputPage(url) {
   fetch(url)
@@ -13,6 +12,7 @@ function inputPage(url) {
       return response.text();
     })
     .then(content => {
+      var codigoPagina = document.getElementById('codigoPagina');
       const regex = /<!-- Code injected by live-server -->[\s\S]*<\/script>/g;
       const cleanTextCode = content.replace(regex, '');
       codigoPagina.className = '';
@@ -75,13 +75,14 @@ function clear() {
 }
 
 function copyCode() {
-  codigoPagina = document.getElementById('codigoPagina').textContent;
+  var codigoPagina = document.getElementById('codigoPagina').textContent;
   const textareaTemporario = document.createElement('textarea');
   textareaTemporario.value = codigoPagina;
   document.body.appendChild(textareaTemporario);
   textareaTemporario.select();
   document.execCommand('copy');
   document.body.removeChild(textareaTemporario);
+  loader()
 }
 
 function changeFontSize(fontSize) {
