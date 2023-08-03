@@ -5,12 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Codigo da Aplicação</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://patrickluiz.tech/src/img/images.png">
   <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
   <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tomorrow-night-bright.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Search Engine Optimization -->
+  <meta name="description" content="Live Code"/>
+  <meta name="author" content="Patrick Luiz Duque"/>
+  <meta name="copyright" content=" Patrick Luiz © 2023"/>
+  <meta property="og:title" content="Projeto Netuno | Formando Diamantes"/>
+  <meta property="og:description" content="Live Code Projeto Netuno | Formando Diamantes "/>
+  <meta property="og:image" content="https://raw.githubusercontent.com/patrickluizdev/desafio-netuno-page/main/assets/img/bannertopo.png"/>
 </head>
 <body>
   <main>
@@ -40,13 +48,25 @@
         <menu>
           <ul>
             <li>
-              <i data-lucide="file-text"></i>
+              <a href="https://patrickluiz.tech/" target="_blank" title="Página Principal">
+                <i data-lucide="globe-2" ></i>
+              </a>
+            </li>
+            <!-- <li>
+              <i data-lucide="search" onclick=""></i>
+            </li> -->
+            <li>
+              <a href="https://www.figma.com/file/uM0J7Nk70O9nD0YS4BK7Wa/Flexbox-Turismo?type=design&node-id=0-1&mode=design&t=XEYxsTiKsj9gMTwm-0" target="_blank" title="Projeto Figma">
+                <i data-lucide="figma"></i>
+              </a>
             </li>
             <li>
-              <i data-lucide="search"></i>
+              <a href="http://patrickluiz.tech:5500/flexTurismo/index.html" target="_blank" title="Flex Turismo">               
+                <i data-lucide="chrome"></i>
+              </a>
             </li>
             <li>
-              <a href="https://github.com/" target="_blank">              
+              <a href="https://github.com/patrickluizdev" target="_blank" aria-label="github" title="Github">              
                 <i data-lucide="github"></i>
               </a>
             </li>
@@ -57,17 +77,29 @@
         <menu class="nav-explorer">
           <a id="folder"><i data-lucide="folder-closed"></i>Projeto Netuno</a>
           <ul>
+            <li id="subItem">
+                <i data-lucide="folder-closed">
+                </i>Src</a>
+            </li>
+              <ul class="sub-item">
+                <li href="#" onclick="inputPage(inputPageStile)">
+                  <a href="http://patrickluiz.tech:5500/flexTurismo/src/img" target="_blank" title="Pasta Imagens">
+                    <i data-lucide="folder-closed"></i>
+                    img
+                  </a>
+                </li>
+                <li href="#" id="navCss" onclick="inputPage(inputPageStile)">
+                  <i data-lucide="file-image"></i>
+                  style.css
+                </li>
+                <li href="#" id="navJs"onclick="inputPage(inputPageScript)">
+                  <i data-lucide="file-code"></i>
+                  script.js
+                </li>
+              </ul>
             <li href="#" id="navHtml" onclick="inputPage(inputPageIndex)">
               <i data-lucide="file-check"></i>
               index.html
-            </li>
-            <li href="#" id="navCss" onclick="inputPage(inputPageStile)">
-              <i data-lucide="file-image"></i>
-              style.css
-            </li>
-            <li href="#" id="navJs"onclick="inputPage(inputPageScript)">
-              <i data-lucide="file-code"></i>
-              script.js
             </li>
           </ul>
         </menu>
@@ -87,7 +119,9 @@
           </ul>
         </menu>
         <div class="code-space" id="snippet">
-          <span id="copy"><i data-lucide="paperclip" onclick="copyCode()"></i></span>
+          <span id="copy"  title="Copy" onclick="loader()">
+            <i data-lucide="paperclip"></i>
+          </span>
           <pre class="styled-pre" id="fontEvent">
             <code id="codigoPagina">
             </code>

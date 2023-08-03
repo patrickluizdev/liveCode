@@ -61,6 +61,8 @@
 
 li, a {
   cursor: pointer;
+  text-decoration: none;
+  color: var(--secondary-color);
 }
 
 body {
@@ -163,14 +165,12 @@ aside menu ul{
   width: 20%;
   max-width: 10rem;
   height: 60vh;
-  gap:1rem;
   border-radius: 8px 0px 8px 8px;
 }
 
 .explorer menu {
   flex-direction: column;
-  padding-left: 10px;
-  padding-top: 10px;
+  padding-top: 8px;
   color: var(--secondary-color);
 }
 
@@ -183,8 +183,9 @@ aside menu ul{
 .nav-explorer li {
   flex-direction: row;
   font-size: 12px;
-  margin-top: 1rem;
+  margin-top: 8px;
 }
+
 
 .nav-arquive {
   width: 100%;
@@ -195,8 +196,9 @@ aside menu ul{
 
 .nav-arquive ul {
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   gap:0;
+  margin: 0;
 }
 
 .nav-arquive li {
@@ -242,19 +244,28 @@ pre {
 .actived {
   border-top: 2px solid var(--primary-color);
   background-color: var(--dark-background-color);
+  transition: 0.5s;
+
 }
 
 li:active,
 a:active,
 svg:active {
   transform: scale(0.9) !important;
+  transition: 0.5s;
 }
 
 .arquive-actived {
   color: var(--primary-color);
 }
 
-#folder {
+.sub-item li{
+  margin: 8px;
+  padding-left: 5px;
+}
+
+#folder{
+  padding-top: 10px;
   font-size: 12px;
 }
 
@@ -266,7 +277,6 @@ svg:active {
 #altFont ul{
   text-align: center;
   position: absolute;
-  /* top: 0; */
   bottom: 0;
   width: 50%;
   color: var(--secondary-color);
@@ -294,7 +304,7 @@ svg[data-lucide="file-code"] {
   padding-right: 5px;
 }
 
-.nav-explorer li:hover {
+.nav-explorer li:hover, a:hover {
   color: var(--primary-color);
 }
 
@@ -354,8 +364,15 @@ svg[data-lucide="file-code"] {
     width: 95%;
     height: 90vh;
   }
-  .title{
-    display: none;
+  .title {
+    gap: 5px;
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+  }
+  h1 {
+    font-size: 10px;
+  }
+  h2 {
+    font-size: 8px;
   }
   .nav-arquive li {
     padding: 5px;
@@ -367,11 +384,34 @@ svg[data-lucide="file-code"] {
   
 }
 
+@media (max-width: 425px) {
+  .title {
+    gap: 5px;
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+  }
+  h1 {
+    font-size: 8px;
+  }
+  h2 {
+    font-size: 6px;
+  }
+  .nav-arquive li{
+    font-size: 10px;
+    min-width: 90px;
+
+  }
+}
+
 @media (max-height: 570px) {
   pre{
     max-height: 80vh;
   }
+
 }
+
+
+
+
 
 
 

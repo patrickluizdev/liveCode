@@ -1,6 +1,6 @@
 // Chamada URL páginas
-const inputPageStile = 'http://patrickluiz.tech:5500/flexTurismo/style.css';
-const inputPageScript = 'http://patrickluiz.tech:5500/flexTurismo/script.js';
+const inputPageStile = 'http://patrickluiz.tech:5500/flexTurismo/src/style.css';
+const inputPageScript = 'http://patrickluiz.tech:5500/flexTurismo/src/script.js';
 const inputPageIndex = 'http://patrickluiz.tech:5500/flexTurismo/index.html';
 var codigoPagina = document.getElementById('codigoPagina');
 
@@ -46,12 +46,22 @@ function actived(element) {
 
 function folder() {
   const folderIcon = document.getElementById('folder');
+  const subFolder = document.getElementById('subItem');
   const navExplorerList = document.querySelector('.nav-explorer ul');
+  const explorerFolder = document.querySelector('.sub-item');
+
   folderIcon.addEventListener('click', () => {
     if (navExplorerList.style.display === 'none') {
       navExplorerList.style.display = 'block';
     } else {
       navExplorerList.style.display = 'none';
+    }
+  });
+  subFolder.addEventListener('click', () => {
+    if (explorerFolder.style.display === 'none') {
+      explorerFolder.style.display = 'block';
+    } else {
+      explorerFolder.style.display = 'none';
     }
   });
   actived();
@@ -65,7 +75,7 @@ function clear() {
 }
 
 function copyCode() {
-  // codigoPagina = document.getElementById('codigoPagina').textContent;
+  codigoPagina = document.getElementById('codigoPagina').textContent;
   const textareaTemporario = document.createElement('textarea');
   textareaTemporario.value = codigoPagina;
   document.body.appendChild(textareaTemporario);
@@ -78,5 +88,26 @@ function changeFontSize(fontSize) {
   fontEvent.style.fontSize = fontSize;
 }
 
+function themeUser(){
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      console.log("Navegador com tema escuro")
+    } else {
+      console.log("Navegador com tema escuro")
+    }
+}
+
+function loader() {
+  const loanderEvent = document.getElementsByTagName("body")[0];
+  loanderEvent.style.cursor = 'progress';
+  setTimeout(() => {
+    loanderEvent.style.cursor = 'auto';
+  }, 1000);
+}
+
+
+
+/* <link rel="shortcut icon" type="image/x-icon" href="src/img/images.png"></link> */
+themeUser()
 folder();
 inputPage(inputPageIndex)
+
