@@ -100,8 +100,12 @@ function themeUser(){
 function loader() {
   const loanderEvent = document.getElementsByTagName("body")[0];
   loanderEvent.style.cursor = 'progress';
+  const tooltip = document.querySelector('#tooltip');
+  tooltip.style.display = 'block';
+  
   setTimeout(() => {
-    loanderEvent.style.cursor = 'auto';
+    tooltip.style.display = 'none';
+    loaderEvent.style.cursor = 'auto';
   }, 1000);
 }
 

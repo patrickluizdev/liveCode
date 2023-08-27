@@ -226,7 +226,6 @@ aside menu ul{
 }
 
 pre {
-  padding-left: 1rem;
   max-width: 99%;
   height: 80%;
   overflow: auto;
@@ -409,7 +408,18 @@ svg[data-lucide="file-code"] {
 
 }
 
+#tooltip {
+  background-color: #333;
+  display:none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+}
 
+pre code{
+  padding-top: 0!important;
+}
 
 
 
